@@ -131,12 +131,15 @@ var questions = [
 
 ];
 
+var presentedQuestion = "";
+
 var gameState = {
 	totalCorrect: 0,
 	totalIncorrect: 0,
 	totalUnanswered: 0, 
 	currentQuestion: "",
 	totalQuestionCount: 0,
+	selection : "",
 	timer: 10,
 }
 
@@ -155,8 +158,8 @@ function startGame () {
 }
 
 function chooseQuestion () {
-	var presentedQuestion = Math.floor(Math.random(0 - 10) * 10);
-	console.log(presentedQuestion);
+	presentedQuestion = Math.floor(Math.random(0 - 10) * 10);
+	console.log("presented question:" + presentedQuestion);
 
 	if (gameState.totalQuestionCount < 6) {
 		if(questions[presentedQuestion].useCount === 0) {
@@ -170,20 +173,20 @@ function chooseQuestion () {
 
 			questions[presentedQuestion].useCount++;
 			gameState.totalQuestionCount ++; 
-			compareAnswers (); 
+			grabSelection (); 
 
 		} else {
 			chooseQuestion (); 
 		}
 
 	} else if (gameState.totalQuestionCount === 6) {
-		alert ("Game Over");
+		// alert ("Game Over");
 		refreshBoard (); 
 		showStats();
 	}
 
-	console.log(questions[presentedQuestion].useCount);
-	console.log(gameState.totalQuestionCount);
+	console.log("use count: " + questions[presentedQuestion].useCount);
+	console.log("total # of q's: " + gameState.totalQuestionCount);
 }
 
 
@@ -204,13 +207,33 @@ function showStats () {
 }
 
 
-function compareAnswers () {
+function grabSelection () {
 	$(".choices-class").click(function () {
-	alert("I'm chosing here!");
-
-}); 
+	// alert("I'm chosing here!");
+		gameState.selection = $(this).text(); 
+		console.log(gameState.selection);
+		compareAnswers (); 
+	}); 
 
 }
+
+function compareAnswers () {
+	if (gameState.selection === questions[presentedQuestion].answers[questions[presentedQuestion].correctAnswer] ) {
+		gameState.totalCorrect ++;
+		console.log("total Correct: "+ gameState.totalCorrect);
+	} else {
+		gameState.totalIncorrect ++;
+		console.log ("total incorrect: " + gameState.totalIncorrect);
+	}
+	showAnswer (); 
+}
+
+
+function showAnswer () {
+	$(".question-answer").html("<div><h2> Answer: </h2></div>");
+	$(".options").html("<div>" + questions[presentedQuestion].answers[questions[presentedQuestion].correctAnswer] + "</div>");
+}
+
 
 
 
