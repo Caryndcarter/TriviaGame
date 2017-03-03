@@ -149,6 +149,11 @@ function beginning () {
 	});
 }
 
+function startGame () {	
+	refreshBoard (); 
+	chooseQuestion();
+}
+
 function chooseQuestion () {
 	var presentedQuestion = Math.floor(Math.random(0 - 10) * 10);
 	console.log(presentedQuestion);
@@ -167,30 +172,30 @@ function chooseQuestion () {
 		chooseQuestion (); 
 	} else if (gameState.totalQuestionCount === 6) {
 		alert ("Game Over");
-		beginning ();
-		refreshBoard();
-		
+		refreshBoard (); 
+		showStats();
 	}
-
 
 	console.log(questions[presentedQuestion].useCount);
 	console.log(gameState.totalQuestionCount);
-	
 }
 
-function startGame () {	
-	refreshBoard (); 
-	chooseQuestion();
-}
 
 function refreshBoard () {
 	gameState.totalQuestionCount === 0;
 	$(".question-answer").html("<div></div>");
 	$(".options").html("<div></div>");
-	for (var i = 0; i < questions.length; i++) {
+	for (var i = 0; i < 10; i++) {
 		questions[i].useCount === 0; 
 	}
 }
 
+
+function showStats () {
+	$(".question-answer").html("<div><h2> Game Over </h2></div>");
+	$(".options").html("<div> Correct: " + gameState.totalCorrect + "</div>");
+	$(".options").append("<div> Incorrect: " + gameState.totalIncorrect + "</div>");
+	$(".options").append("<div> Unanswered: " + gameState.totalUnanswered + "</div>"); 
+}
 
 });
