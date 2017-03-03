@@ -1,13 +1,33 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+   Margin bottom by footer height 
+  margin-bottom: 80px;
+}
+
 .background  {
 	width:100%;
 	overflow:auto;
 }
 
-.trivia-board {
+
+.timer {
+	margin:10px 10px 10px 10px;
+	text-align: center;
+}
+
+.triviaboard {
 	margin: 20px 0px 100px 130px;
 	width:550px;
 	height:350px;
 	background-color:black;
+	color: #cb9c19;
+	font-family: cinzel;
+	text-align: center;
+	font-size: 24px;
 	z-index: 1;
 	position:relative;
 
@@ -41,5 +61,8 @@ h1 {
 	border-top-width: 10px;
 	border-top-style: solid; 
 	border-top-color: #cb9c19;
-	clear: both;
+	position: absolute;
+  	bottom: 0;
+  	height: 80px;
 }
+
