@@ -31,102 +31,102 @@ var questions = [
 	{
 		question: "What is the name of the world-class museum pictured in the background?",
 		questionNumber: 0,
-		questionPicture: null,
+		questionPicture: "",
 		answers: ["The Hermitage", "The British Museum", "The Prado", "The Louvre"],
 		useCount: 0,
 		correctAnswer: 3,
 		answerExp: "The Louvre Museum is the largest museum in the world.",
-		answerPhoto: null
+		answerPhoto: ""
 	},
 	{
 		question: "Where is the Louvre?",
 		questionNumber: 1,
-		questionPicture: null,
+		questionPicture: "",
 		answers: ["Paris", "London", "Madrid", "Berlin"],
 		useCount: 0,
 		correctAnswer: 0,
 		answerExp: "The Louvre is a historic landmark in the city of Paris.",
-		answerPhoto: "../images/paris_380x244.jpg"
+		answerPhoto: "../triviagame/assets/images/rsz_paris_380x244.jpg"
 	},
 	{
 		question: "What is the most famous painting in the Louvre?",
 		questionNumber: 2,
-		questionPicture: null, 
+		questionPicture: "", 
 		answers: ["The Starry Night", "The Scream", "The Mona Lisa", "The Last Supper"],
 		useCount: 0,
 		correctAnswer: 2,
 		answerExp: "The Mona Lisa is a portrait of Lisa Gherardini by Leonardo da Vinci, on display in the Louvre since 1797.",
-		answerPhoto:"../images/monalisa.jpg"
+		answerPhoto:"../triviagame/assets/images/rsz_monalisa.jpg"
 	},
 	{
 		question: "The oldest foundations of the Louvre date to which century?",
 		questionNumber: 3,
-		questionPicture: null,
+		questionPicture: "",
 		answers: ["19th", "17th", "15th", "12th"],
 		useCount: 0,
 		correctAnswer: 3,
 		answerExp: "The Louvre was originally built as a fortress in 1190 with a moat to defend against the north.",
-		answerPhoto: null
+		answerPhoto: ""
 	},
 	{
 		question: "What event triggered the Louvre becoming a museum?",
 		questionNumber: 4, 
-		questionPicture: null, 
+		questionPicture: "", 
 		answers: ["Joan of Arc led a victory against the British at Orleans", "Louis XIV moved out to Versailles", "Napoleon crowned himself Emperor", "France and the Allies defeated Germany in WWI"],
 		useCount: 0,
 		correctAnswer: 1,
 		answerExp: "In 1682, Louis XIV left the palatial Louvre and moved to Versailles. After the French Revolution, the first exhibits in 1793 displayed the royal collection of art.",
-		answerPhoto: null
+		answerPhoto: ""
 	},
 	{
 		question: "True or False: The architect who designed the glass pyramid at the Louvre is of at least partial European heritage?",
 		questionNumber: 5,
-		questionPicture: null, 
+		questionPicture: "", 
 		answers: ["True", "False"],
 		useCount: 0,
 		correctAnswer: 1,
 		answerExp: "I.M. Pei, a Chinese-born American architect, was chosen by the French President to re-develop the Louvre in the 1980s.  He won the Pritzker Prize, the Nobel Prize for Architecture, in 1983.",
-		answerPhoto: null
+		answerPhoto: ""
 	},
 	{
 		question: "What is the most beloved sculpture in the Louvre?",
 		questionNumber: 6,
-		questionPicture: null,
+		questionPicture: "",
 		answers: ["Venus de Milo","Winged Victory of Samothrace", "The Dying Slave by Michelangelo", "Psyche Revived by Cupid's Kiss by Antonio Canova"],
 		useCount: 0,
 		correctAnswer: 0,
 		answerExp: "Venus de Milo, one of the most famous Greek sculptures of all time, created between 130 and 100 B.C., is always surrounded with vistors.",
-		answerPhoto: "../images/venusdemilo.jpg"
+		answerPhoto: "../triviagame/assets/images/rsz_venusdemilo.jpg"
 	},
 	{
-		question: "These Lamassu figures from the citadel of Sargon II are from which ancient near eastern civilization?",
+		question: "These Lamassu figures from the citadel of Sargon II, on display in the Louvre, are from which ancient near eastern civilization?",
 		questionNumber: 7, 
-		quesitonPicture: "../images/lamassu.jpg", 
+		questionPicture: "../triviagame/assets/images/lamassu.jpg", 
 		answers: ["Egyptian","Babylonian", "Assyrian", "Greek"],
 		useCount: 0,
 		correctAnswer: 2,
 		answerExp: "Meant to protect the kingdom from enemy visitors, the Lamassu were imposing symbols of the Assyrian Empire (934-609 B.C.E.).",
-		answerPhoto: null
+		answerPhoto:""
 	},
 	{
-		question: "True or False: The Winged Victory of Samothrace was initially discovered with only one wing.",
+		question: "True or False: Created in the 2nd century B.C., the Winged Victory of Samothrace was initially discovered with only one wing.",
 		questionNumber: 8, 
-		questionPicture: null,
+		questionPicture: "../triviagame/assets/images/rsz_samothrace.jpg",
 		answers: ["True", "False"],
 		useCount: 0,
 		correctAnswer: 0,
 		answerExp: "Also called the Nike of Samothrace, Winged Victory's outstretched right wing is a symmetric, plaster version of the original left one.",
-		answerPhoto: null
+		answerPhoto: ""
 	},
 	{
-		question: "Liberty Leading the People, painted by Eugene Delacroix, has been associated which Broadway Musical?",
+		question: "A well-known Louvre piece, Liberty Leading the People, painted by Eugene Delacroix in 1830, has been associated which Broadway Musical?",
 		questionNumber: 9,
-		questionPicture: null,
+		questionPicture: "../triviagame/assets/images/rsz_1libertyleading.jpg",
 		answers: ["Hamilton", "Evita", "Les Miserables", "Man of La Mancha"],
 		useCount: 0,
 		correctAnswer: 2,
 		answerExp: "Victor Hugo's novel, Les Miserables (also a musical), and Liberty Leading the People both depict the French Revolution.",
-		answerPhoto: "../images/libertysing.jpg" 
+		answerPhoto: "../triviagame/assets/images/rsz_1libertysing.jpg" 
 	}
 
 ];
@@ -163,6 +163,7 @@ function chooseQuestion () {
 
 	if (gameState.totalQuestionCount < 6) {
 		if(questions[presentedQuestion].useCount === 0) {
+			$(".picture").html("<img src=" + questions[presentedQuestion].questionPicture + ">");
 			$(".question-answer").html(questions[presentedQuestion].question);
 				for (var i = 0; i < questions[presentedQuestion].answers.length; i++) {
 					var choices = $("<div>");
@@ -192,6 +193,7 @@ function chooseQuestion () {
 
 function refreshBoard () {
 	gameState.totalQuestionCount === 0;
+	$(".picture").html("<div></div>");
 	$(".question-answer").html("<div></div>");
 	$(".options").html("<div></div>");
 	for (var i = 0; i < 10; i++) {
@@ -233,6 +235,7 @@ function showAnswer () {
 	$(".question-answer").html("<div><h3> Answer: </h3></div>");
 	$(".options").html("<div><h2>" + questions[presentedQuestion].answers[questions[presentedQuestion].correctAnswer] + "</h2></div>");
 	$(".options").append("<br><div>" + questions[presentedQuestion].answerExp + "</div>");
+	$(".picture").html("<img src="+ questions[presentedQuestion].answerPhoto + ">");
 }
 
 

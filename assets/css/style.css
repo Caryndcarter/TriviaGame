@@ -8,6 +8,7 @@ body {
 }
 
 .picture {
+	position:relative;
 	float:right;
 }
 
@@ -34,6 +35,11 @@ body {
 	z-index: 1;
 	position:relative;
 
+}
+
+
+.picture {
+	margin: 10px 10px 0px 0px;
 }
 
 .louvre {
