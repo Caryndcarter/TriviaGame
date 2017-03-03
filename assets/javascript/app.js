@@ -170,6 +170,7 @@ function chooseQuestion () {
 
 			questions[presentedQuestion].useCount++;
 			gameState.totalQuestionCount ++; 
+			compareAnswers (); 
 
 		} else {
 			chooseQuestion (); 
@@ -202,13 +203,15 @@ function showStats () {
 	$(".options").append("<div> Unanswered: " + gameState.totalUnanswered + "</div>"); 
 }
 
-$(".choices-class").click (function () {
+
+function compareAnswers () {
+	$(".choices-class").click(function () {
 	alert("I'm chosing here!");
 
 }); 
 
-// function compareAnswers () {
+}
 
-// }
+
 
 });
