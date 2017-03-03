@@ -75,7 +75,7 @@ var questions = [
 		answers: ["Joan of Arc led a victory against the British at Orleans", "Louis XIV moved out to Versailles", "Napoleon crowned himself Emperor", "France and the Allies defeated Germany in WWI"],
 		useCount: 0,
 		correctAnswer: 1,
-		answerExp: "In 1682, Louis XIV left the palatial Louvre and moved to Versailles. After the French Revolution, the first exhibits in 1793 displayed the royal collection of art.",
+		answerExp: "In 1682, Louis XIV relocated from the Louvre and moved to Versailles. After the French Revolution, the first exhibits in 1793 displayed the royal collection of art.",
 		answerPhoto: ""
 	},
 	{
@@ -109,7 +109,7 @@ var questions = [
 		answerPhoto:""
 	},
 	{
-		question: "True or False: Created in the 2nd century B.C., the Winged Victory of Samothrace was initially discovered with only one wing.",
+		question: "True or False: Sitting in the Louvre atop a large staircase, the Winged Victory of Samothrace, created in the 2nd century B.C., was initially discovered missing one wing.",
 		questionNumber: 8, 
 		questionPicture: "../triviagame/assets/images/rsz_samothrace.jpg",
 		answers: ["True", "False"],
@@ -119,7 +119,7 @@ var questions = [
 		answerPhoto: ""
 	},
 	{
-		question: "A well-known Louvre piece, Liberty Leading the People, painted by Eugene Delacroix in 1830, has been associated which Broadway Musical?",
+		question: "A famous Louvre piece, Liberty Leading the People, painted by Eugene Delacroix in 1830, has been associated which Broadway Musical?",
 		questionNumber: 9,
 		questionPicture: "../triviagame/assets/images/rsz_1libertyleading.jpg",
 		answers: ["Hamilton", "Evita", "Les Miserables", "Man of La Mancha"],
@@ -140,7 +140,7 @@ var gameState = {
 	currentQuestion: "",
 	totalQuestionCount: 0,
 	selection : "",
-	timer: 10,
+	timer: 16,
 }
 
 function beginning () {
@@ -174,7 +174,11 @@ function chooseQuestion () {
 
 			questions[presentedQuestion].useCount++;
 			gameState.totalQuestionCount ++; 
-			grabSelection (); 
+			startTimer ();
+			grabSelection ();
+				if (gameState.timer === 0) {
+					chooseQuestion (); 
+				}
 
 		} else {
 			chooseQuestion (); 
@@ -214,6 +218,7 @@ function grabSelection () {
 	// alert("I'm chosing here!");
 		gameState.selection = $(this).text(); 
 		console.log(gameState.selection);
+		clearTimer ();
 		compareAnswers (); 
 	}); 
 
@@ -226,7 +231,7 @@ function compareAnswers () {
 	} else {
 		gameState.totalIncorrect ++;
 		console.log ("total incorrect: " + gameState.totalIncorrect);
-	}
+	} 
 	showAnswer (); 
 }
 
@@ -238,7 +243,42 @@ function showAnswer () {
 	$(".picture").html("<img src="+ questions[presentedQuestion].answerPhoto + ">");
 }
 
+function startTimer () {
+	intervalID = setInterval(count,1000);
+}
 
+function clearTimer () {
+	clearInterval(intervalID);
+	gameState.timer = 16; 
+
+}
+
+function count() {
+
+  gameState.timer--;
+  var converted = timeConverter(gameState.timer);
+  $(".timer").html(converted);
+
+}
+
+function timeConverter(t) {
+
+    var minutes = Math.floor(t / 60);
+    var seconds = t - (minutes * 60);
+
+    if (seconds < 10) {
+      seconds = "0" + seconds;
+    }
+
+    if (minutes === 0) {
+      minutes = "00";
+    }
+    else if (minutes < 10) {
+      minutes = "0" + minutes;
+    }
+
+    return minutes + ":" + seconds;
+  }
 
 
 });
