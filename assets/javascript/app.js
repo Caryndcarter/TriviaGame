@@ -75,11 +75,11 @@ var questions = [
 		answers: ["Joan of Arc led a victory against the British at Orleans", "Louis XIV moved out to Versailles", "Napoleon crowned himself Emperor", "France and the Allies defeated Germany in WWI"],
 		useCount: 0,
 		correctAnswer: 1,
-		answerExp: "In 1682, Louis XIV left the Louvre as a palace and moved to Versailles. After the French Revolution, the first exhibits in 1793 displayed the royal collection of art.",
+		answerExp: "In 1682, Louis XIV left the palatial Louvre and moved to Versailles. After the French Revolution, the first exhibits in 1793 displayed the royal collection of art.",
 		answerPhoto: null
 	},
 	{
-		question: "True or False: The architect who designed the glass pyramid at the Louvre was of at least partial European heritage?",
+		question: "True or False: The architect who designed the glass pyramid at the Louvre is of at least partial European heritage?",
 		questionNumber: 5,
 		questionPicture: null, 
 		answers: ["True", "False"],
@@ -95,7 +95,7 @@ var questions = [
 		answers: ["Venus de Milo","Winged Victory of Samothrace", "The Dying Slave by Michelangelo", "Psyche Revived by Cupid's Kiss by Antonio Canova"],
 		useCount: 0,
 		correctAnswer: 0,
-		answerExp: "Venus de Milo is one of the most famous Greek sculptures of all time, created between 130 and 100 B.C., and is always surrounded with vistors.",
+		answerExp: "Venus de Milo, one of the most famous Greek sculptures of all time, created between 130 and 100 B.C., is always surrounded with vistors.",
 		answerPhoto: "../images/venusdemilo.jpg"
 	},
 	{
@@ -115,7 +115,7 @@ var questions = [
 		answers: ["True", "False"],
 		useCount: 0,
 		correctAnswer: 0,
-		answerExp: "Also called the Nike of Samothrace, her outstretched right wing is a symmetric, plaster version of the original left one.",
+		answerExp: "Also called the Nike of Samothrace, Winged Victory's outstretched right wing is a symmetric, plaster version of the original left one.",
 		answerPhoto: null
 	},
 	{
@@ -125,7 +125,7 @@ var questions = [
 		answers: ["Hamilton", "Evita", "Les Miserables", "Man of La Mancha"],
 		useCount: 0,
 		correctAnswer: 2,
-		answerExp: "Both Liberty Leading the People and Les Miserables, originally a novel by Victor Hugo that became a musical, depict the French Revolution.",
+		answerExp: "Victor Hugo's novel, Les Miserables (also a musical), and Liberty Leading the People both depict the French Revolution.",
 		answerPhoto: "../images/libertysing.jpg" 
 	}
 
@@ -230,8 +230,9 @@ function compareAnswers () {
 
 
 function showAnswer () {
-	$(".question-answer").html("<div><h2> Answer: </h2></div>");
-	$(".options").html("<div>" + questions[presentedQuestion].answers[questions[presentedQuestion].correctAnswer] + "</div>");
+	$(".question-answer").html("<div><h3> Answer: </h3></div>");
+	$(".options").html("<div><h2>" + questions[presentedQuestion].answers[questions[presentedQuestion].correctAnswer] + "</h2></div>");
+	$(".options").append("<br><div>" + questions[presentedQuestion].answerExp + "</div>");
 }
 
 
