@@ -29,13 +29,13 @@ $(document).ready(function() {
 
 	$(".start").click(function () {
 		$(".triviaboard").show();
-		chooseQuestion(); 
+		startGame(); 
 	});	
 
 var questions = [
 	{
 		question: "What is the name of the world-class museum pictured in the background?",
-		questionNumber: 1,
+		questionNumber: 0,
 		questionPicture: null,
 		answers: ["The Hermitage", "The British Museum", "The Prado", "The Louvre"],
 		useCount: 0,
@@ -45,7 +45,7 @@ var questions = [
 	},
 	{
 		question: "Where is the Louvre?",
-		questionNumber: 2,
+		questionNumber: 1,
 		questionPicture: null,
 		answers: ["Paris", "London", "Madrid", "Berlin"],
 		useCount: 0,
@@ -55,7 +55,7 @@ var questions = [
 	},
 	{
 		question: "What is the most famous painting in the Louvre?",
-		questionNumber: 3,
+		questionNumber: 2,
 		questionPicture: null, 
 		answers: ["The Starry Night", "The Scream", "The Mona Lisa", "The Last Supper"],
 		useCount: 0,
@@ -65,7 +65,7 @@ var questions = [
 	},
 	{
 		question: "The oldest foundations of the Louvre date to which century?",
-		questionNumber: 4,
+		questionNumber: 3,
 		questionPicture: null,
 		answers: ["19th", "17th", "15th", "12th"],
 		useCount: 0,
@@ -75,7 +75,7 @@ var questions = [
 	},
 	{
 		question: "What event triggered the Louvre becoming a museum?",
-		questionNumber: 5, 
+		questionNumber: 4, 
 		questionPicture: null, 
 		answers: ["Joan of Arc led a victory against the British at Orleans", "Louis XIV moved out to Versailles", "Napoleon crowned himself Emperor", "France and the Allies defeated Germany in WWI"],
 		useCount: 0,
@@ -85,7 +85,7 @@ var questions = [
 	},
 	{
 		question: "True or False: The architect who designed the glass pyramid at the Louvre was of at least partial European heritage?",
-		questionNumber: 6,
+		questionNumber: 5,
 		questionPicture: null, 
 		answers: ["True", "False"],
 		useCount: 0,
@@ -95,7 +95,7 @@ var questions = [
 	},
 	{
 		question: "What is the most beloved sculpture in the Louvre?",
-		questionNumber: 7,
+		questionNumber: 6,
 		questionPicture: null,
 		answers: ["Venus de Milo","Winged Victory of Samothrace", "The Dying Slave by Michelangelo", "Psyche Revived by Cupid's Kiss by Antonio Canova"],
 		useCount: 0,
@@ -105,7 +105,7 @@ var questions = [
 	},
 	{
 		question: "These Lamassu figures from the citadel of Sargon II are from which ancient near eastern civilization?",
-		questionNumber: 8, 
+		questionNumber: 7, 
 		quesitonPicture: "../images/lamassu.jpg", 
 		answers: ["Egyptian","Babylonian", "Assyrian", "Greek"],
 		useCount: 0,
@@ -115,7 +115,7 @@ var questions = [
 	},
 	{
 		question: "True or False: The Winged Victory of Samothrace was initially discovered with only one wing.",
-		questionNumber: 9, 
+		questionNumber: 8, 
 		questionPicture: null,
 		answers: ["True", "False"],
 		useCount: 0,
@@ -125,7 +125,7 @@ var questions = [
 	},
 	{
 		question: "Liberty Leading the People, painted by Eugene Delacroix, has been associated which Broadway Musical?",
-		questionNumber: 10,
+		questionNumber: 9,
 		questionPicture: null,
 		answers: ["Hamilton", "Evita", "Les Miserables", "Man of La Mancha"],
 		useCount: 0,
@@ -146,7 +146,7 @@ var gameState = {
 }
 
 function chooseQuestion () {
-	var presentedQuestion = Math.floor(Math.random() * 10 + 1);
+	var presentedQuestion = Math.floor(Math.random(0 - 10) * 10);
 	console.log(presentedQuestion);
 
 	if(questions[presentedQuestion].useCount === 0) {
@@ -164,7 +164,14 @@ function chooseQuestion () {
 	
 }
 
-	
+function startGame ()	{
+	$(".question-answer").html("<div></div>");
+	$(".options").html("<div></div>");
+	for (var i = 0; i < questions.length; i++) {
+		questions[i].useCount === 0; 
+	}
+	chooseQuestion(); 
+}
 
 function resetQuestions () {
 
