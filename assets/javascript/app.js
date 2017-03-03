@@ -158,18 +158,23 @@ function chooseQuestion () {
 	var presentedQuestion = Math.floor(Math.random(0 - 10) * 10);
 	console.log(presentedQuestion);
 
-	if(questions[presentedQuestion].useCount === 0 && gameState.totalQuestionCount < 6) {
-		$(".question-answer").html(questions[presentedQuestion].question);
-			for (var i = 0; i < questions[presentedQuestion].answers.length; i++) {
-				var choices = $(".options").append("<div>" + questions[presentedQuestion].answers[i] + "</div>"); 
-				choices.addClass("choices"); 
-			}
+	if (gameState.totalQuestionCount < 6) {
+		if(questions[presentedQuestion].useCount === 0) {
+			$(".question-answer").html(questions[presentedQuestion].question);
+				for (var i = 0; i < questions[presentedQuestion].answers.length; i++) {
+					var choices = $("<div>");
+					choices.addClass("choices-class");
+					choices.append(questions[presentedQuestion].answers[i]);
+					$(".options").append(choices);
+				}
 
-		questions[presentedQuestion].useCount++;
-		gameState.totalQuestionCount ++; 
+			questions[presentedQuestion].useCount++;
+			gameState.totalQuestionCount ++; 
 
-	} else if (questions[presentedQuestion].useCount !== 0 && gameState.totalQuestionCount < 6){
-		chooseQuestion (); 
+		} else {
+			chooseQuestion (); 
+		}
+
 	} else if (gameState.totalQuestionCount === 6) {
 		alert ("Game Over");
 		refreshBoard (); 
@@ -190,12 +195,20 @@ function refreshBoard () {
 	}
 }
 
-
 function showStats () {
 	$(".question-answer").html("<div><h2> Game Over </h2></div>");
 	$(".options").html("<div> Correct: " + gameState.totalCorrect + "</div>");
 	$(".options").append("<div> Incorrect: " + gameState.totalIncorrect + "</div>");
 	$(".options").append("<div> Unanswered: " + gameState.totalUnanswered + "</div>"); 
 }
+
+$(".choices-class").click (function () {
+	alert("I'm chosing here!");
+
+}); 
+
+// function compareAnswers () {
+
+// }
 
 });
