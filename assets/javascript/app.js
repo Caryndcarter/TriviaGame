@@ -21,7 +21,7 @@ var questions = [
 		useCount: 0,
 		correctAnswer: 0,
 		answerExp: "The Louvre is a historic landmark in the city of Paris.",
-		answerPhoto: "../triviagame/assets/images/rsz_paris_380x244.jpg"
+		answerPhoto: "assets/images/rsz_paris_380x244.jpg"
 	},
 	{
 		question: "What is the most famous painting in the Louvre?",
@@ -31,7 +31,7 @@ var questions = [
 		useCount: 0,
 		correctAnswer: 2,
 		answerExp: "The Mona Lisa is a portrait of Lisa Gherardini by Leonardo da Vinci, on display in the Louvre since 1797.",
-		answerPhoto:"../triviagame/assets/images/rsz_monalisa.jpg"
+		answerPhoto:"assets/images/rsz_monalisa.jpg"
 	},
 	{
 		question: "The oldest foundations of the Louvre date to which century?",
@@ -71,12 +71,12 @@ var questions = [
 		useCount: 0,
 		correctAnswer: 0,
 		answerExp: "Venus de Milo, one of the most famous Greek sculptures of all time, created between 130 and 100 B.C., is always surrounded with vistors.",
-		answerPhoto: "../triviagame/assets/images/rsz_venusdemilo.jpg"
+		answerPhoto: "assets/images/rsz_venusdemilo.jpg"
 	},
 	{
 		question: "These Lamassu figures from the citadel of Sargon II, on display in the Louvre, are from which ancient near eastern civilization?",
 		questionNumber: 7, 
-		questionPicture: "../triviagame/assets/images/lamassu.jpg", 
+		questionPicture: "assets/images/lamassu.jpg", 
 		answers: ["Egyptian","Babylonian", "Assyrian", "Greek"],
 		useCount: 0,
 		correctAnswer: 2,
@@ -86,7 +86,7 @@ var questions = [
 	{
 		question: "True or False: Sitting in the Louvre atop a large staircase, the Winged Victory of Samothrace, created in the 2nd century B.C., was initially discovered missing one wing.",
 		questionNumber: 8, 
-		questionPicture: "../triviagame/assets/images/rsz_samothrace.jpg",
+		questionPicture: "assets/images/rsz_samothrace.jpg",
 		answers: ["True", "False"],
 		useCount: 0,
 		correctAnswer: 0,
@@ -96,12 +96,12 @@ var questions = [
 	{
 		question: "A famous Louvre piece, Liberty Leading the People, painted by Eugene Delacroix in 1830, has been associated which Broadway Musical?",
 		questionNumber: 9,
-		questionPicture: "../triviagame/assets/images/rsz_1libertyleading.jpg",
+		questionPicture: "assets/images/rsz_1libertyleading.jpg",
 		answers: ["Hamilton", "Evita", "Les Miserables", "Man of La Mancha"],
 		useCount: 0,
 		correctAnswer: 2,
 		answerExp: "Victor Hugo's novel, Les Miserables (also a musical), and Liberty Leading the People both depict the French Revolution.",
-		answerPhoto: "../triviagame/assets/images/rsz_1libertysing.jpg" 
+		answerPhoto: "assets/images/rsz_1libertysing.jpg" 
 	}
 
 ];
