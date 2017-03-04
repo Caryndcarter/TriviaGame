@@ -1,28 +1,3 @@
-/* Pseudo code: 
-
-Object with the questions
-var questions : {
-	
-}
-
-Questions to have attributes (1)name, (2) question, (3) possible 
-answers ARRAY, (4) correct answer, which is equal to one of the answers, 
-(5) a number to increment as the number of times the question is used goes up.
-
-Need math.floor/math.random to pick 
-the questions. 
-
-Need 10 questions.  Should present 6 and then start over the game. 
-
-Function: startGame function onClick of the Start Game button. 
-	black screen resets with new question
-	values (1) total correct (2) incorrect --- both clear and are not visible
-	timer resets
-
-Function: displayQuestion -- on answer display will wait 8 seconds and then show new question
-
-*/
-
 $(document).ready(function() {	
 
 beginning ();	
@@ -354,3 +329,28 @@ function timeConverter(t) {
 
 
 });
+
+/* Pseudo code: 
+
+Object with the questions
+var questions : {
+	
+}
+
+Questions to have attributes (1)name, (2) question, (3) possible 
+answers ARRAY, (4) correct answer, which is equal to one of the answers, 
+(5) a number to increment as the number of times the question is used goes up.
+
+Need math.floor/math.random to pick 
+the questions. 
+
+Need 10 questions.  Should present 6 and then start over the game. 
+
+Function: startGame function onClick of the Start Game button. 
+	black screen resets with new question
+	values (1) total correct (2) incorrect --- both clear and are not visible
+	timer resets
+
+Function: displayQuestion -- on answer display will wait 8 seconds and then show new question
+
+*/
