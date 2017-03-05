@@ -94,14 +94,14 @@ var questions = [
 		answerPhoto: ""
 	},
 	{
-		question: "A famous Louvre piece, Liberty Leading the People, painted by Eugene Delacroix in 1830, has been associated which Broadway Musical?",
+		question: "True or False: A famous Louvre piece, La Grande Odalisque by Jean-Auguste Ingres, depicts a woman with five extra vertebrae.",
 		questionNumber: 9,
-		questionPicture: "assets/images/rsz_1libertyleading.jpg",
-		answers: ["Hamilton", "Evita", "Les Miserables", "Man of La Mancha"],
+		questionPicture: "assets/images/rsz_odalisque.jpg",
+		answers: ["True", "False"],
 		useCount: 0,
-		correctAnswer: 2,
-		answerExp: "Victor Hugo's novel, Les Miserables (also a musical), and Liberty Leading the People both depict the French Revolution.",
-		answerPhoto: "assets/images/rsz_1libertysing.jpg" 
+		correctAnswer: 0,
+		answerExp: "In the 19th century, the painting was notorious for its anatomical inaccuracy, adding what was assumed to be three extra vertebrae, but in 2004 a scientific measurement was done that found five.",
+		answerPhoto: "" 
 	}
 
 ];
