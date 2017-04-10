@@ -13,8 +13,10 @@ html {
 }
 
 .background  {
-	width:100%;
-	overflow:auto;
+	background-image: url("../images/Louvre-Museum-Paris.jpg");
+	background-size: cover;
+	min-width: 100%;
+	min-height: 900px; 
 }
 
 
